@@ -1,0 +1,19 @@
+{
+  "name": "bizmob-plugin-signature",
+  "version": "1.0.0",
+  "description": "A plugin for opening signature view to sign the signature of the user.",
+  "cordova": {
+    "id": "bizmob-plugin-signature",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Mobile C&C",
+  "license": "ISC"
+}

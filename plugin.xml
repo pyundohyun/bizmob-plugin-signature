@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="bizmob-plugin-signature"
+        version="1.0.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>Signature</name>
+    <js-module name="Signature" src="www/Signature.js">
+        <clobbers target="cordova.plugins.Signature"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="Signature">
+                <param name="android-package" value="com.mcnc.bizmoblite.plugin.signature.Signature"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		</config-file>
+		<config-file parent="/manifest/application" target="AndroidManifest.xml">
+			<activity
+				android:name="com.mcnc.bizmoblite.plugin.signature.SignatureActivity"
+				android:configChanges="orientation|keyboardHidden|screenSize"
+				android:screenOrientation="landscape"
+				android:theme="@android:style/Theme.Dialog"/>
+		</config-file>
+		
+        <source-file src="src/android/Signature.java" target-dir="src/com/mcnc/bizmoblite/plugin/signature"/>
+		<source-file src="src/android/activity/SignatureActivity.java" target-dir="src/com/mcnc/bizmoblite/plugin/signature"/>
+		<source-file src="src/android/util/BMPGenerator.java" target-dir="src/com/mcnc/bizmoblite/util"/>
+		<source-file src="src/android/util/RUtil.java" target-dir="src/com/mcnc/bizmoblite/util"/>
+		<source-file src="src/android/res/bizmob_sign_bg.9.png" target-dir="res/drawable"/>
+		<source-file src="src/android/res/bizmob_sign_cancel_btn.png" target-dir="res/drawable"/>
+		<source-file src="src/android/res/bizmob_sign_ok_btn.png" target-dir="res/drawable"/>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="Signature">
+                <param name="ios-package" value="Signature"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/Signature.h"></header-file>
+        <source-file src="src/ios/Signature.m"></source-file>
+
+        <resource-file src="src/ios/Resources/bizmob_sign_bg.9.png" />
+        <resource-file src="src/ios/Resources/bizmob_sign_cancel_btn.png" />
+        <resource-file src="src/ios/Resources/bizmob_sign_ok_btn.png" />
+    </platform>
+</plugin>
